@@ -21,9 +21,16 @@ end
 
 key = 'unique_key'
 schedule = '30 * * * *'
-ChronoCross::JobManager.register(key, schedule, MyJob, 'foo')
 # MyJob#perform will be fired every 30 mins
+ChronoCross::JobManager.register(key, schedule, MyJob, 'foo')
+
+# unregister job
+ChronoCross::JobManager.unregister(key)
 ```
+
+## Persistency
+ChronoCross has no persistency.
+You need to re-register jobs in initializer.
 
 ## Authors
 
