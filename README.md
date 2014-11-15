@@ -1,6 +1,6 @@
 # ChronoCross
 
-Cron like task schduler.
+Cron like task scheduler.
 
 ## Requirements
 
