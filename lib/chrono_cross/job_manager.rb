@@ -1,10 +1,13 @@
 # coding: utf-8
 require 'chrono'
+require 'active_support/inflector'
 
 module ChronoCross
   class JobManager
     class << self
       def register(key, schedule, clazz, *args)
+        clazz = clazz.classify.constantize if clazz.is_a? String
+
         unregister(key)
 
         jobs[key] = Thread.new do

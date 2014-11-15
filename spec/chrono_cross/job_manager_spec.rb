@@ -15,6 +15,13 @@ describe ChronoCross do
       ChronoCross::JobManager.unregister('foo')
       expect(ChronoCross::JobManager.jobs.size).to eq(0)
     end
+    it 'can register and unregister with String' do
+      expect(ChronoCross::JobManager.jobs.size).to eq(0)
+      ChronoCross::JobManager.register('foo', '* * * * *', 'MyJob', 'bob')
+      expect(ChronoCross::JobManager.jobs.size).to eq(1)
+      ChronoCross::JobManager.unregister('foo')
+      expect(ChronoCross::JobManager.jobs.size).to eq(0)
+    end
   end
 end
 
